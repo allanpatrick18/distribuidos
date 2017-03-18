@@ -11,4 +11,12 @@ package com.copel.distribuidos;
  */
 public class InitSystem {
     
+        public static void main (String[] args) {
+ 
+                  Multcast multcast = new Multcast();
+                  Thread threadMulticast =new Thread();
+                  threadMulticast.run();
+                  
+                  
+        }
 }
