@@ -5,6 +5,8 @@
  */
 package com.copel.distribuidos;
 
+import java.util.Scanner;
+
 /**
  *
  * @author allan
@@ -12,10 +14,34 @@ package com.copel.distribuidos;
 public class InitSystem {
     
         public static void main (String[] args) {
- 
+                    
+            
+                  String nome = "nome";
+                  System.out.println("aquii");
                   Multcast multcast = new Multcast();
-                  Thread threadMulticast =new Thread();
-                  threadMulticast.run();
+                  multcast.setArgs(nome);
+//                  multcast.setProducts();
+//                  multcast.run();
+//                  multcast.close();
+                  System.out.println("Nome");
+                  Scanner ler = new Scanner(System.in);
+                  Leiloero leiloero = new Leiloero();
+                  leiloero.setNome(ler.next());
+                  System.out.println("Senha Publica");
+                  leiloero.setKeyPublicA(ler.next());
+                  System.out.println("Senha Privada");
+                  leiloero.setKeyPrivateA(ler.next());
+                  leiloero.setMult(multcast);
+                  leiloero.getMult().run();
+                  
+                  
+                  
+                  
+                  
+                  
+             
+         
+                  
                   
                   
         }
