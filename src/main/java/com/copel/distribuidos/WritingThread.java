@@ -37,7 +37,7 @@ public class WritingThread implements Runnable {
 
                 if (!(leitura1.equals("sair")) ){
                     leitura1 = scan.nextLine();
-
+                       
                     if (!"sair".equals(leitura1)) {
                         byte[] m = leitura1.getBytes();
                         DatagramPacket messageOut = new DatagramPacket(m, m.length, group, 6789);
@@ -46,8 +46,10 @@ public class WritingThread implements Runnable {
                         } catch (IOException ex) {
                             Logger.getLogger(WritingThread.class.getName()).log(Level.SEVERE, null, ex);
                         }
-
-                    }
+                           s.leaveGroup(group);
+                 
+            
+            }
                 } else {
                     s.leaveGroup(group);
                     break;
