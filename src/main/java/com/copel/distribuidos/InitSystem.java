@@ -5,9 +5,9 @@
  */
 package com.copel.distribuidos;
 
+import apresentacao.Inicio;
 import java.lang.management.ManagementFactory;
-import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  *
@@ -16,8 +16,9 @@ import java.util.Scanner;
 public class InitSystem {
     
         public static void main (String[] args) {
-                 
           
+           Inicio inicio = new Inicio();
+         
            String name = ManagementFactory.getRuntimeMXBean().getName();
            System.out.println("Name =" + name);
            GeraChave gchave = new GeraChave();
@@ -30,13 +31,12 @@ public class InitSystem {
            
            WritingThread wt = new WritingThread();        
            ReadingThread rt = new ReadingThread();
-        
-                 
+           
            new Thread(wt).start();
            new Thread(rt).start();
            
           
-        
+                  
                   
         }
 }
