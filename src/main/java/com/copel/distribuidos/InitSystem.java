@@ -5,7 +5,9 @@
  */
 package com.copel.distribuidos;
 
-import java.util.Scanner;
+import apresentacao.Inicio;
+import java.lang.management.ManagementFactory;
+
 
 /**
  *
@@ -14,34 +16,26 @@ import java.util.Scanner;
 public class InitSystem {
     
         public static void main (String[] args) {
-                    
-            
-                  String nome = "nome";
-                  System.out.println("aquii");
-                  Multcast multcast = new Multcast();
-                  multcast.setArgs(nome);
-//                  multcast.setProducts();
-//                  multcast.run();
-//                  multcast.close();
-                  System.out.println("Nome");
-                  Scanner ler = new Scanner(System.in);
-                  Leiloero leiloero = new Leiloero();
-                  leiloero.setNome(ler.next());
-                  System.out.println("Senha Publica");
-                  leiloero.setKeyPublicA(ler.next());
-                  System.out.println("Senha Privada");
-                  leiloero.setKeyPrivateA(ler.next());
-                  leiloero.setMult(multcast);
-                  leiloero.getMult().run();
-                  
-                  
-                  
-                  
-                  
-                  
-             
+          
+           Inicio inicio = new Inicio();
          
-                  
+           String name = ManagementFactory.getRuntimeMXBean().getName();
+           System.out.println("Name =" + name);
+           GeraChave gchave = new GeraChave();
+           gchave.geraChave();   
+           byte[] chavePrivada = gchave.getChavePrivada();
+           byte[] chavePublica = gchave.getChavePublica();
+            
+           Leiloero leiloero = new Leiloero(name, chavePrivada, chavePublica);  
+           Comprador comprador = new Comprador(name, chavePrivada, chavePublica);
+           
+           WritingThread wt = new WritingThread();        
+           ReadingThread rt = new ReadingThread();
+           
+           new Thread(wt).start();
+           new Thread(rt).start();
+           
+          
                   
                   
         }

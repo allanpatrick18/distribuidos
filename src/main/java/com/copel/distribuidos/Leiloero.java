@@ -5,6 +5,7 @@
  */
 package com.copel.distribuidos;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,69 +15,35 @@ import java.util.List;
 public class Leiloero {
     
     public String nome;
-    public Multcast mult = new Multcast();
-    public  Unicast unicast = new Unicast();
-    private String keyPrivateA;
-    private String keyPublicA;
-    private String KeyAB;
-    private List<Product> products;
+ //   public Multcast mult = new Multcast();
+ //   public  Unicast unicast = new Unicast();
+    private byte[] keyPrivateA;
+    private byte[] keyPublicA;
     
+    public HashMap<String,byte[]> hashNomeChavePublica;
+    private List<Product> products;
 
+    public Leiloero(String nome, byte[] keyPrivateA, byte[] keyPublicA) {
+        this.nome = nome;
+        this.keyPrivateA = keyPrivateA;
+        this.keyPublicA = keyPublicA;
+    }
 
+   
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public Multcast getMult() {
-        return mult;
-    }
-
-    public void setMult(Multcast mult) {
-        this.mult = mult;
-    }
-
-    public Unicast getUnicast() {
-        return unicast;
-    }
-
-    public void setUnicast(Unicast unicast) {
-        this.unicast = unicast;
-    }
-
-    public String getKeyPrivateA() {
+    public byte[] getKeyPrivateA() {
         return keyPrivateA;
     }
 
-    public void setKeyPrivateA(String keyPrivateA) {
-        this.keyPrivateA = keyPrivateA;
-    }
-
-    public String getKeyPublicA() {
+    public byte[] getKeyPublicA() {
         return keyPublicA;
-    }
-
-    public void setKeyPublicA(String keyPublicA) {
-        this.keyPublicA = keyPublicA;
-    }
-
-    public String getKeyAB() {
-        return KeyAB;
-    }
-
-    public void setKeyAB(String KeyAB) {
-        this.KeyAB = KeyAB;
     }
 
     public List<Product> getProducts() {
         return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
     
     

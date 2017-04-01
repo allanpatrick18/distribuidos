@@ -52,22 +52,5 @@ public class Product {
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getNotice() {
-        return notice;
-    }
-
-    public void setNotice(String notice) {
-        this.notice = notice;
-    }
-  
     
 }
